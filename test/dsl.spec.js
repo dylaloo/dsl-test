@@ -14,7 +14,7 @@ describe('Dsl', () => {
 			dsl.assign('x', dsl.fn(dsl.id('+'), [
 				dsl.lit(2), dsl.lit(2),
 			])),
-			// y = x * x, id: 9
+			// y = x - 5, id: 9
 			dsl.assign('y', dsl.fn(dsl.id('-'), [
 				dsl.id('x'), dsl.lit(5),
 			])),
