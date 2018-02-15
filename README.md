@@ -66,7 +66,7 @@ Write a function that, given a full AST and interest in the result of a set of n
 Your code will have to deal with:
 + The execution rules of the DSL
 + Handle failure cases gracefully
-+ Produce an optimized execution plan given interest
++ Produce an optimized execution plan which, given interest, only executes nodes required to evaluate that interest
 + Correctly resolve identifiers through scopes
 
 ##### One example
