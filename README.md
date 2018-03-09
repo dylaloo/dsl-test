@@ -61,12 +61,12 @@ The execution rules for the dsl nodes are:
 
 
 ### Your task
-Write a function that, given a full AST and interest in the result of a set of nodes, determines an optimal execution path and executes the result. Your code must validate against the tests included in this repository (see [Project Setup](#project-setup) below).
+Write a function that, given a full AST and interest in the result of a set of nodes, determines an execution path that only executes the interest's dependencies and the interest and gives those values. Your code must validate against the tests included in this repository (see [Project Setup](#project-setup) below).
 
 Your code will have to deal with:
 + The execution rules of the DSL
 + Handle failure cases gracefully
-+ Produce an optimized execution plan which, given interest, only executes nodes required to evaluate that interest
++ Produce an optimized execution plan which, given interest, **only executes nodes required to evaluate that interest**
 + Correctly resolve identifiers through scopes
 
 ##### One example
