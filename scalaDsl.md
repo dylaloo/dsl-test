@@ -4,7 +4,7 @@ type Id = String
 trait Value
 
 trait DslNode {
-  def id: Int
+	def id: Int
 }
 
 case class Literal(
