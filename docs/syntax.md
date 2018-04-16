@@ -10,7 +10,7 @@ MDN in general is great for reading about specific language features, such as [A
 Strings can be single or double quoted, there is no difference there: `'1' === "1" // same`
 
 There are template strings with the backtick: `` ` ``, everything between backticks is used, and you can use `${someVar}` to inser a variable into the string.
-```
+```js
 const greeter = (name) => `Hello, $name.`;
 console.log(greeter('Dante')); // Hello, Dante.
 
@@ -29,7 +29,7 @@ Essentially, JS started with just `var`, which is "hoisted" to the highest scope
 
 `let` and `const` are [block scoped](http://es6-features.org/#BlockScopedVariables), meaning they only exist in their block and down. Example:
 
-```
+```js
 for (let i = 0; i < 10; i++) {
   console.log(i); // 1, 2, ..., 9
 }
@@ -37,7 +37,7 @@ console.log(i); // throws a "ReferenceError: i is not defined" exception
 ```
 
 Essentially, `const` cannot be re-assigned, but can be mutated. `let` can be re-assigned. Ex:
-```
+```js
 const point = {
   x: 10,
   y: 10,
@@ -55,7 +55,7 @@ console.log(reAssignMe); // { x: 10, y: 20 }
 
 ## [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 Almost evertything in JS is an object. There are literal objects which are string key/value maps (think hash map):
-```
+```js
 // Declare objects with {} brackers:
 const myObj = {
   someKey: 10,
@@ -89,7 +89,7 @@ console.log(Object.keys(myObj.subObj)); // ['foo', 'bar']
 ```
 
 When working with objects, you can use the spred `...` syntax to update/merge them:
-```
+```js
 const base = {
   foo: 10,
 };
@@ -117,7 +117,7 @@ It is actually an "abstract" equality check -- it can cast the types on either s
 Always use `===` to check for equality -- it checks for "strict" equality: `1 === "1" // false`.
 
 Objects in JS are compared and passed by refernece, not value!
-```
+```js
 const a = { x: 10 };
 const b = { x: 10 };
 const c = a; // by reference!
@@ -131,7 +131,7 @@ console.log(c); // { x: 100 };
 
 ## Functions
 Functions in javascript can be created and called as:
-```
+```js
 function myFnName(arg1, arg2, arg3) {
  // some body using args
  return arg1 * arg2 * arg3;
@@ -141,7 +141,7 @@ console.log(myFnName(1, 2, 3)); // 1 * 2 * 3 = 6
 ```
 
 Alternatively, you can use the much more terse [arrow function](http://es6-features.org/#ExpressionBodies), which can ommit `return` when the function body is 1 expression:
-```
+```js
 const myFnName = (arg1, arg2, arg3) => arg1 * arg2 * arg3;
 console.log(myFnName(1, 2, 3)); // 1 * 2 * 3 = 6
 
@@ -158,7 +158,7 @@ Since this project doens't use classes or `this`, that benefit isn't used. [MDN 
 
 ## [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 Arrays are very, very useful in javascript. It is smart to keep arrays to a single type, as they are much easier to reason about and operate over.
-```
+```js
 // Declare arrays with [] brackets:
 const myArr = [1, 2, 3, 4];
 
@@ -185,14 +185,14 @@ Basically, any file can `export` bindings that can be referenced via `import` in
 
 Example:
 a.js
-```
+```js
 export const sum = (a, b) => a + b
 export const dif = (a, b) => a - b
 export default () => console.log('module-level default exported binding');
 ```
 
 b.js
-```
+```js
 import { sum, diff } from './a'; // import select symbols
 // import * as aFns from './a'; // import everything as 'aFns'
 // import aDefault from './a'; // imports the 'module-level default exported binding' one
