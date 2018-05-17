@@ -1,13 +1,37 @@
+/* eslint-disable no-unused-vars */
 import { assert } from 'chai';
 import { dsl } from '../src/dsl';
 import { run } from '../src/runner';
 
 describe('Dsl', () => {
-	it('gives correct execution for the readme example', () => {
+	it('prints the nodes in depth first post traverse order', () => {
 		const ast = dsl.block({
 			'+': (a, b) => a + b,
 			'-': (a, b) => {
-				throw new Exception('This should never run!')
+				throw new Error('This should never run!');
+			},
+		}, [
+			// x = 2 + 2, id: 4
+			dsl.assign('x', dsl.fn(dsl.id('+'), [
+				dsl.lit(2), dsl.lit(2),
+			])),
+			// y = x - 5, id: 9
+			dsl.assign('y', dsl.fn(dsl.id('-'), [
+				dsl.id('x'), dsl.lit(5),
+			])),
+		]);
+
+		run(ast, [
+			ast.nodes[1].id,
+		]);
+
+	});
+
+	it.skip('gives correct execution for the readme example', () => {
+		const ast = dsl.block({
+			'+': (a, b) => a + b,
+			'-': (a, b) => {
+				throw new Error('This should never run!');
 			},
 		}, [
 			// x = 2 + 2, id: 4
@@ -45,7 +69,7 @@ describe('Dsl', () => {
 		assert.deepEqual(results, expected, 'Run yields correct values for the interested nodes');
 	});
 
-	it('can run each type of node', () => {
+	it.skip('can run each type of node', () => {
 		const ast = dsl.block({
 			'+': (a, b) => a + b,
 		}, [
