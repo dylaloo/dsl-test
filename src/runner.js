@@ -50,7 +50,14 @@ function printDepthFirstPost(ast) {
 			// print out the child id (but if it has children you need to print its children's id first, (but if it has children you need to print its children's id first, ...))
 			// one way to do the above is a recursive function call (fyi the other way is to use a stack, don't do it here)
 			// https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056
-			// try to use recursion to fill in the rest of this function. If you need a hint just ask.
+			if (child === null) {
+				return;
+			}
+			printDepthFirstPost(child.left);
+			printDepthFirstPost(child.right);
+			console.log(child.data);
+		}y to use recursion to fill in the rest of this function. If you need a hint just ask.
+			
 		}
 			// in post traversal we print the node after we print the children let not forget
 		console.log(ast.id);
