@@ -56,10 +56,9 @@ function printDepthFirstPost(ast) {
 			printDepthFirstPost(child.left);
 			printDepthFirstPost(child.right);
 			console.log(child.data);
-		}y to use recursion to fill in the rest of this function. If you need a hint just ask.
-			
 		}
-			// in post traversal we print the node after we print the children let not forget
+
+		// in post traversal we print the node after we print the children let not forget
 		console.log(ast.id);
 		break;
 	default:
