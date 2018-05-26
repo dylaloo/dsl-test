@@ -40,6 +40,9 @@ function nodeValue(ast, bindings) {
 	}
 }
 
+/**
+ * Takes a astNode and prints its childrens ids, then it's id
+ */
 function printDepthFirstPost(ast) {
 	switch (ast.shape) {
 	case NodeShape.Block:
